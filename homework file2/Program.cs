@@ -8,7 +8,12 @@ namespace homework_file2
 {
     class Program
     {
-        static void Main(string[] args)
+        static bool TakeCountFlowers(int firstFlower, int secondFlower)
+        {
+            bool isLoved = firstFlower % 2 != secondFlower % 2;
+            return isLoved;
+        }
+            static void Main(string[] args)
         {
             Console.WriteLine("homework a.1.1.a");
             int n = Convert.ToInt32(Console.ReadLine());//n-количество секунд
@@ -32,7 +37,7 @@ namespace homework_file2
             Console.ReadLine();
 
             Console.WriteLine("homework a.1.3");
-            int x = Convert.ToInt32(Console.ReadLine());//номер последующего после n месяца
+            int x=0;//номер последующего после n месяца
             n = Convert.ToInt32(Console.ReadLine());//количество месяцев,прошедших с начала 2020 года
             if (x < 0 && x > 13)
             {
@@ -45,18 +50,12 @@ namespace homework_file2
             }
 
             Console.WriteLine("homework 1.4");
+            Console.WriteLine("Введите двузначное число");
             int number = Convert.ToInt32(Console.ReadLine());//двузначное число
-            int tens = 0;//количество десятков в числе
-            int ones = 0;//количество единиц в числе
-            int summOfNumbers = 0;//сумма цифр
-            int productOfNumbers = 0;//произведение цифр
-            while (number >= 10 && number <= 99)
-            {
-                tens = number / 10;
-                ones = number % 10;
-                summOfNumbers = tens + ones;
-                productOfNumbers = tens * ones;
-            }
+            int tens=number/10;//количество десятков в числе
+            int ones=number%10;//количество единиц в числе
+            int summOfNumbers=tens+ones;//сумма цифр
+            int productOfNumbers=tens*ones;//произведение цифр
             Console.WriteLine("Кол-во единиц = " + ones + " Кол-во десятков = " + tens + " Сумма цифр = " + summOfNumbers + " произведение чисел = " + productOfNumbers);
 
             Console.WriteLine("homework a.1.5");
@@ -154,6 +153,23 @@ namespace homework_file2
             third = X || !Y && !(X || !Z);
             Console.WriteLine($"При X-правда,Y,Z-ложь:a){first}\n b){second}\n c){third}");
             Console.ReadLine();
+
+            //dop
+            Console.WriteLine("Dop 1");
+            Console.WriteLine("Сколько лепестков у Тимми?");
+            int countFlower1 = Convert.ToInt32(Console.ReadLine());
+            Console.WriteLine("Сколько лепестков у Сары?");
+            int countFlower2 = Convert.ToInt32(Console.ReadLine());
+            bool isFallInLove = TakeCountFlowers(countFlower1, countFlower2);
+            if (isFallInLove)
+                Console.WriteLine("Они любят друг друга!");
+            else
+                Console.WriteLine("Они не любят друг друга!");
+
+            Console.WriteLine("Dop 2");
+            double countHour = Convert.ToDouble(Console.ReadLine());
+            double needToDrink = 0.5; 
+            Console.WriteLine($"Натану нужно выпить {(int)(needToDrink * countHour)} воды!");
         }
     }
 }
